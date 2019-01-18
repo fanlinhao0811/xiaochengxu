@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 我能获取您的头像和昵称吗？ </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view class="tips-title"> 此刻，我们见面了 </view>
+  <view class="clock_con">
+    <view style='width:100%;height:{{canvasHeight}}px' catchtap='goCountdown'catchlongtap='touchstart' catchtouchend='touchend'>
+      <canvas canvas-id='clock' style='width:100%;height:{{canvasHeight}}px'></canvas>
+    </view>
+  </view>
+  <view class="tips-time">{{ time }}</view>
+</view>
